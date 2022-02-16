@@ -8,6 +8,13 @@ const workers = []
 for (let i = 0; i < cpuNum; i++) {
   const worker = childProcess.fork(path.resolve(__dirname, './worker.js'))
   workers.push(worker)
+
+  // 工作进程退出后重启
+  newProcess.on('exit', () => {
+  console.log('Worker-' + newProcess.pid + ' exited')
+  workers[i] = childProcess.fork('./worker.js')
+  console.log('Create worker-' + childProcess.pid)
+})
 }
 
 
