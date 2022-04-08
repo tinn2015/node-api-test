@@ -2,6 +2,11 @@ const chalk = require('chalk')
 const path = require('path')
 const log = console.log
 
+// console.log(path.resolve('/a//c/v'))
+// console.log(path.relative('/a//c/v'))
+console.log(path.join('/a','/a/c/v'))
+console.log(path.normalize('pages//aa/v///b'))
+
 
 function init() {
   // 获取路径的最后一个， 第二个参数可以去掉后缀
@@ -46,4 +51,5 @@ function init() {
   log(path.resolve('test', 'something.txt'))
 }
 
-module.exports = init
+// init()
+// module.exports = init
